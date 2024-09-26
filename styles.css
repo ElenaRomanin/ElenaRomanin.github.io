@@ -35,7 +35,7 @@ html, body {
     padding: 20px 40px; /* Ajusta el espaciado interno */
     z-index: 1000; /* Asegura que la barra de navegación esté encima de otros elementos */
     transition: background-color 0.2s ease, transform 0.2s ease; /* Suaviza la transición del color */
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
   }
 
   .navbar.scrolled {
@@ -53,7 +53,7 @@ html, body {
   .navbar .nav-links {
     list-style: none;
     display: flex;
-    flex-direction: row;
+    /* flex-direction: row; */
     font-weight: bold;
   }
 
@@ -96,20 +96,21 @@ html, body {
 /* Media Queries for Mobile */
 @media (max-width: 768px) {
     .nav-links {
-        display: none !important;
+        display: none;
         flex-direction: column;
         position: fixed;
-        top: 78px;
+        top: 0;
         right: 0;
         padding: 15px;
-        width: 50%;
+        padding-top: 70px;
+        width: 250px;
+        height: 100vh;
         max-width: none;
-        /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); */
-        z-index: 9999;
+        z-index: 10000;
         text-decoration: underline;
-        transition: background-color 0.2s ease, transform 0.2s ease;
-        transform: translateX(100%); /* Transición para la visibilidad */
-        background-color: transparent;
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in;
+        background-color: rgba(241, 208, 155, 0.9);;
     }
 
     .nav-links li {
@@ -120,6 +121,7 @@ html, body {
 
     .nav-links li a {
         padding-right: 15px;
+        width: 100%;
         /* Añade un poco de espacio desde el borde derecho */
     }
 
@@ -127,18 +129,23 @@ html, body {
     .nav-links.active {
         display: flex !important;
         transform: translateX(0); /* Muestra el menú cuando está activo */
-        flex-direction: column; 
+        /* flex-direction: column; 
+        height: 100vh; */
     }
 
-    .nav-links.scrolled {
-        background-color: rgba(241, 208, 155, 0.9); /* Color al hacer scroll */
+    /* .nav-links.scrolled {
+        background-color: rgba(241, 208, 155, 0.9);
         transition: background-color 0.2s ease;
-      }
+      } */
 
     .burger {
         display: block;
-        z-index: 10000;
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 10001;
         color: #333;
+        /* position:fixed */
     }
 
     /* Flexbox for mobile */
@@ -245,7 +252,7 @@ html, body {
 
     .profile-image-vertical img {
         margin-bottom: 20px;
-        width: 100%; /* Ajusta el tamaño de la imagen en máquinas de escritorio */
+        width: 100%;
     }
 
     .nav-links {
